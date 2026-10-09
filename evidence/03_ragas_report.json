@@ -1,0 +1,21 @@
+{
+  "status": "blocked_before_evaluation",
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "attempted_at": "2026-10-09T07:51:26.584129+07:00",
+  "error": "External Gemini/LangSmith calls were blocked in this environment pending explicit authorization for transmitting knowledge-base chunks and queries.",
+  "prompt_v1_scores": {
+    "faithfulness": null,
+    "answer_relevancy": null,
+    "context_recall": null,
+    "context_precision": null
+  },
+  "prompt_v2_scores": {
+    "faithfulness": null,
+    "answer_relevancy": null,
+    "context_recall": null,
+    "context_precision": null
+  },
+  "target_met": null,
+  "note": "This is a status record, not an RAGAS evaluation result. No scores or traces have been fabricated."
+}

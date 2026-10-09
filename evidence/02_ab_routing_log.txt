@@ -1,0 +1,58 @@
+OFFLINE LOCAL ROUTING CHECK — not an A/B model run
+Timestamp: 2026-10-09T07:54:23.065451+07:00
+No prompt was sent to LangSmith; no LLM requests were made.
+Request IDs checked: 50
+Deterministic repeatability: PASS
+V1 assignments: 19
+V2 assignments: 31
+request_id,version
+req-0000,vu-minh-hoang-rag-prompt-v2
+req-0001,vu-minh-hoang-rag-prompt-v2
+req-0002,vu-minh-hoang-rag-prompt-v1
+req-0003,vu-minh-hoang-rag-prompt-v1
+req-0004,vu-minh-hoang-rag-prompt-v2
+req-0005,vu-minh-hoang-rag-prompt-v2
+req-0006,vu-minh-hoang-rag-prompt-v2
+req-0007,vu-minh-hoang-rag-prompt-v2
+req-0008,vu-minh-hoang-rag-prompt-v1
+req-0009,vu-minh-hoang-rag-prompt-v2
+req-0010,vu-minh-hoang-rag-prompt-v1
+req-0011,vu-minh-hoang-rag-prompt-v1
+req-0012,vu-minh-hoang-rag-prompt-v2
+req-0013,vu-minh-hoang-rag-prompt-v1
+req-0014,vu-minh-hoang-rag-prompt-v2
+req-0015,vu-minh-hoang-rag-prompt-v1
+req-0016,vu-minh-hoang-rag-prompt-v2
+req-0017,vu-minh-hoang-rag-prompt-v2
+req-0018,vu-minh-hoang-rag-prompt-v1
+req-0019,vu-minh-hoang-rag-prompt-v2
+req-0020,vu-minh-hoang-rag-prompt-v1
+req-0021,vu-minh-hoang-rag-prompt-v1
+req-0022,vu-minh-hoang-rag-prompt-v2
+req-0023,vu-minh-hoang-rag-prompt-v1
+req-0024,vu-minh-hoang-rag-prompt-v2
+req-0025,vu-minh-hoang-rag-prompt-v1
+req-0026,vu-minh-hoang-rag-prompt-v2
+req-0027,vu-minh-hoang-rag-prompt-v2
+req-0028,vu-minh-hoang-rag-prompt-v2
+req-0029,vu-minh-hoang-rag-prompt-v2
+req-0030,vu-minh-hoang-rag-prompt-v2
+req-0031,vu-minh-hoang-rag-prompt-v2
+req-0032,vu-minh-hoang-rag-prompt-v1
+req-0033,vu-minh-hoang-rag-prompt-v2
+req-0034,vu-minh-hoang-rag-prompt-v1
+req-0035,vu-minh-hoang-rag-prompt-v2
+req-0036,vu-minh-hoang-rag-prompt-v2
+req-0037,vu-minh-hoang-rag-prompt-v1
+req-0038,vu-minh-hoang-rag-prompt-v2
+req-0039,vu-minh-hoang-rag-prompt-v2
+req-0040,vu-minh-hoang-rag-prompt-v2
+req-0041,vu-minh-hoang-rag-prompt-v1
+req-0042,vu-minh-hoang-rag-prompt-v2
+req-0043,vu-minh-hoang-rag-prompt-v2
+req-0044,vu-minh-hoang-rag-prompt-v1
+req-0045,vu-minh-hoang-rag-prompt-v2
+req-0046,vu-minh-hoang-rag-prompt-v1
+req-0047,vu-minh-hoang-rag-prompt-v1
+req-0048,vu-minh-hoang-rag-prompt-v2
+req-0049,vu-minh-hoang-rag-prompt-v2

@@ -1,0 +1,119 @@
+============================================================
+  Bước 1: LangSmith RAG Pipeline
+============================================================
+✅ Config OK  |  Provider: GEMINI  |  Project: day22-lab
+📚 Đã chia thành 107 chunks
+🔨 Đang tạo FAISS index từ 107 chunks ...
+Traceback (most recent call last):
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpcore\_sync\http_proxy.py", line 288, in handle_request
+    connect_response = self._connection.handle_request(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\langchain_google_genai\embeddings.py", line 449, in embed_documents
+    result = self.client.models.embed_content(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\google\genai\models.py", line 6086, in embed_content
+    return self._embed_content(model=model, contents=contents, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\google\genai\models.py", line 4897, in _embed_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\google\genai\_api_client.py", line 1757, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\google\genai\_api_client.py", line 1544, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\google\genai\_api_client.py", line 1520, in _request_once
+    response = self._httpx_client.send(httpx_request, stream=stream)  # type: ignore[union-attr, arg-type]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\src\01_langsmith_rag_pipeline.py", line 122, in <module>
+    main()
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\src\01_langsmith_rag_pipeline.py", line 109, in main
+    vectorstore = setup_vectorstore()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\src\01_langsmith_rag_pipeline.py", line 45, in setup_vectorstore
+    vectorstore = build_vectorstore(chunks, embeddings)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\src\utils\data_loader.py", line 67, in build_vectorstore
+    vectorstore = FAISS.from_texts(chunks, embeddings)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\langchain_community\vectorstores\faiss.py", line 1043, in from_texts
+    embeddings = embedding.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI VinUni\Lab\K4-L3-day22-lab-2A202602371-LLMOpsPromptVersioning\.venv\Lib\site-packages\langchain_google_genai\embeddings.py", line 459, in embed_documents
+    raise GoogleGenerativeAIError(msg) from e
+langchain_google_genai._common.GoogleGenerativeAIError: Error embedding content: [WinError 10061] No connection could be made because the target machine actively refused it
